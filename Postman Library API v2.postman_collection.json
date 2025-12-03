@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "9792f941-19dc-41aa-b9fa-faf54b74f571",
+		"name": "Postman Library API v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29073344",
+		"_collection_link": "https://experts-2419.postman.co/workspace/af6e1f28-3169-48bd-9bbd-896c90d170ae/collection/29073344-9792f941-19dc-41aa-b9fa-faf54b74f571?action=share&source=collection_link&creator=29073344"
+	},
+	"item": [
+		{
+			"name": "get books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/books",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get fiction books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/books?genre=fiction&checkedOut=false",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "genre",
+							"value": "fiction"
+						},
+						{
+							"key": "checkedOut",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get book by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/books/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"books",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "fc812af0-1b82-40d5-bbcd-bae803098887"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// save the \"id\" value from the response to a variable named \"id\"",
+							"const id = pm.response.json().id",
+							"// save the id as a collection variable named \"id\"",
+							"pm.collectionVariables.set(\"id\", id)"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "postmanrulz",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Alice in Wonderland\",\n  \"author\": \"Lewis Carroll\",\n  \"genre\": \"fiction\",\n  \"yearPublished\": 1865\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/books",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkout a book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"checkedOut\": true \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/books/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"books",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3e5c1da3-0183-4462-b120-0755182bc43a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"checkedOut\": true \n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/books/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"books",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3e5c1da3-0183-4462-b120-0755182bc43a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "skill check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const favoriteActor = pm.response.json().json.actorName;",
+							"pm.collectionVariables.set(\"favoriteActor\", favoriteActor);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "skillcheck",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "student-expert",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"actorName\": \"Beatrice\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{skillcheckBaseUrl}}/post?movieName=Kill Bill",
+					"host": [
+						"{{skillcheckBaseUrl}}"
+					],
+					"path": [
+						"post"
+					],
+					"query": [
+						{
+							"key": "movieName",
+							"value": "Kill Bill"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "postmanrulz",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		},
+		{
+			"key": "id",
+			"value": ""
+		},
+		{
+			"key": "skillcheckBaseUrl",
+			"value": ""
+		},
+		{
+			"key": "favoriteActor",
+			"value": ""
+		}
+	]
+}

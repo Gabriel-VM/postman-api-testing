@@ -5,6 +5,8 @@ This repository contains Postman API testing collections that demonstrate practi
 
 The purpose is to showcase hands-on practice with REST APIs and test automation foundations.
 
+The requests represent manipulations on the catalogue of a library (searching books, adding a book to the catalogue, updating a book status, deleting a book from the catalogue).
+
 -----------------------
 
 🚀 Requirements
@@ -22,11 +24,13 @@ To run these collections, you will need:
 
 - Option 1 — Drag & Drop
 
+Download the .json environment file from this repository.
+
 Download the .json collection file from this repository.
 
 Open Postman.
 
-Drag the file into the interface — Postman will auto-import it.
+Drag the files into the interface — Postman will auto-import it.
 
 - Option 2 — Manual Import
 
@@ -34,9 +38,9 @@ Open Postman
 
 Click Import
 
-Select File
+Select Files
 
-Choose the exported .json file
+Choose the exported .json files
 
 Confirm
 
@@ -53,7 +57,7 @@ Open any request
 
 Press Send to execute the request
 
-If you imported an Environment, select it in the environment dropdown before running.
+⚠️ Important: select the environment in the environment dropdown before running.
 
 ------
 
@@ -65,7 +69,7 @@ This collection includes:
 ✔️ GET, POST, PATCH, DELETE requests
 ✔️ Query parameters, request bodies, headers
 ✔️ JSON responses and status code validation
-✔️ Basic scripting in Pre-Request and Tests tabs
+✔️ Basic scripting in Post-Request and Tests tabs
 ✔️ Postman variables for reusability
 
 You can explore each request, modify values, debug behavior, and extend the tests.

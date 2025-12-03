@@ -75,7 +75,11 @@ You can explore each request, modify values, debug behavior, and extend the test
 📌 Notes
 -
 
-Collection variables are provided only for demonstration purposes.
+- ⚠️Collection variables are provided only for demonstration purposes.
+  
+- ⚠️ The API key included in this collection is provided for public educational use and is not tied to personal or private services.
+You can also generate your own through Postman’s training material: https://academy.postman.com/page/students
+
 
 ----
 

@@ -55,9 +55,9 @@ Set the following collection variable:
 
 - baseUrl = https://library-api.postmanlabs.com
 
-Open any request
+Press Send to execute a request
 
-Press Send to execute the request
+⚠️ Important: the requests must be sent following top to down order (so you can add a book and create the "id" variable, that will be required by the next requests in the list)
 
 ------
 

@@ -24,8 +24,6 @@ To run these collections, you will need:
 
 - Option 1 — Drag & Drop
 
-Download the .json environment file from this repository.
-
 Download the .json collection file from this repository.
 
 Open Postman.
@@ -49,15 +47,17 @@ Confirm
 ▶️ How to Run the Collection
 -
 
-After importing, go to the Collections tab
+After importing...
 
 Select the collection you imported
+
+Set the following collection variable:
+
+- baseUrl = https://library-api.postmanlabs.com
 
 Open any request
 
 Press Send to execute the request
-
-⚠️ Important: select the environment in the environment dropdown before running.
 
 ------
 
@@ -66,11 +66,11 @@ Press Send to execute the request
 
 This collection includes:
 
-✔️ GET, POST, PATCH, DELETE requests
-✔️ Query parameters, request bodies, headers
-✔️ JSON responses and status code validation
-✔️ Basic scripting in Post-Request and Tests tabs
-✔️ Postman variables for reusability
+-  GET, POST, PATCH, DELETE requests
+-  Query parameters, request bodies, headers
+-  SON responses and status code validation
+-  asic scripting in Post-Request and Tests tabs
+-  ostman variables for reusability
 
 You can explore each request, modify values, debug behavior, and extend the tests.
 
